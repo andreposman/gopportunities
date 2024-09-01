@@ -11,7 +11,7 @@ func initRoutes(router *gin.Engine) {
 	{
 		v1.GET("/ping", handler.PingHandler)
 
-		v1.GET("/opening", handler.OpeningHandler)
+		v1.GET("/opening", handler.ShowOpeningHandler)
 		v1.POST("/opening", handler.CreateOpeningHandler)
 		v1.PUT("/opening", handler.UpdateOpeningHandler)
 		v1.DELETE("/opening", handler.DeleteOpeningHandler)
