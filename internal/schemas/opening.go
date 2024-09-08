@@ -8,6 +8,7 @@ import (
 
 type Opening struct {
 	gorm.Model
+	ID          uint
 	Role        string
 	Description string
 	Company     string

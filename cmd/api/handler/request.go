@@ -3,6 +3,7 @@ package handler
 import "fmt"
 
 type CreateOpeningRequest struct {
+	ID          uint   `json:"id" gorm:"unique;primaryKey;autoIncrement=true;not null"`
 	Role        string `json: "role"`
 	Description string `json: "description"`
 	Company     string `json: "company"`
