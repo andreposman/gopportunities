@@ -1,0 +1,64 @@
+# Project Overview
+
+This project includes scripts to create and delete job openings by interacting with a specified API endpoint. The Makefile provides convenient targets to run these scripts with the required parameters.
+
+## Prerequisites
+
+- Ensure you have `curl` installed on your system.
+- The API endpoint should be accessible and support the required HTTP methods (POST for creating and DELETE for deleting).
+
+## Setup
+
+1. **Clone the repository**:
+
+   ```sh
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+## Usage
+1.**In the root folder run**:
+
+```sh
+   go run cmd/api/main.go
+   ```
+   or  
+
+```sh   
+   air
+   ```
+
+
+### Create Job Openings
+
+1.**Navigate to the internal/db directory**:
+
+   ```sh
+   cd internal/db
+   ```
+
+To create a specified number of job openings, use the `create` target with the `USERS` parameter:
+
+```sh
+make create USERS=<number_of_users>
+```
+
+For example, to create 10 job openings:
+
+```sh
+make create USERS=10
+```
+
+### Delete Job Openings
+
+To delete job openings within a specified ID range, use the `delete` target with the `START_ID` and `END_ID` parameters:
+
+```sh
+make delete START_ID=<start_id> END_ID=<end_id>
+```
+
+For example, to delete job openings with IDs from 1 to 10:
+
+```sh
+make delete START_ID=1 END_ID=10
+```

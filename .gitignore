@@ -4,7 +4,7 @@
 /temp
 *.test
 *.out
-internal/db/
+internal/db/main.db
 temp/
 tmp/
 .pre-commit-config.yaml
