@@ -1,10 +1,9 @@
-
 .idea/
 .env
 *.exe
 /temp
 *.test
-
 *.out
-
 internal/db/
+temp/
+tmp/
