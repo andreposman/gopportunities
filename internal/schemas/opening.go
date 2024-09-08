@@ -11,6 +11,7 @@ type Opening struct {
 	Role        string
 	Description string
 	Company     string
+	Location    string
 	IsRemote    bool
 	Link        string
 	Salary      int64
@@ -24,6 +25,7 @@ type OpeningResponse struct {
 	Role        string    `json: "role"`
 	Description string    `json: "description"`
 	Company     string    `json: "company"`
+	Location    string    `json: "location"`
 	IsRemote    bool      `json: "isRemote"`
 	Link        string    `json: "link"`
 	Salary      int64     `json: "salary"`
