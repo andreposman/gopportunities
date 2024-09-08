@@ -29,8 +29,9 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 		return
 	}
 
-	//? deleting binded opening
-	if err := db.Delete(&opening).Error; err != nil {
+	//? soft-deleting binded opening
+	//? hard-deleting:  db.Unscoped().Delete
+	if err := db.Unscoped().Delete(&opening).Error; err != nil {
 		errMsg := fmt.Sprintf("error deleting the opening with ID: %s", ID)
 
 		logger.Errf(errMsg)
