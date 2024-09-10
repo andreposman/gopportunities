@@ -2,8 +2,19 @@ package handler
 
 import "fmt"
 
+// TODO! check/fix gorm annotation
 type CreateOpeningRequest struct {
 	ID          uint   `json:"id" gorm:"unique;primaryKey;autoIncrement=true;not null"`
+	Role        string `json: "role"`
+	Description string `json: "description"`
+	Company     string `json: "company"`
+	Location    string `json: "location"`
+	IsRemote    *bool  `json: "isRemote"`
+	Link        string `json: "link"`
+	Salary      int64  `json: "salary"`
+}
+
+type UpdateOpeningRequest struct {
 	Role        string `json: "role"`
 	Description string `json: "description"`
 	Company     string `json: "company"`
@@ -56,4 +67,13 @@ func (c *CreateOpeningRequest) Validate() error {
 	}
 
 	return nil
+}
+
+func (u *UpdateOpeningRequest) Validate() error {
+	//? if any field is provided, validation is truthy
+	if u.Company != "" || u.Description != "" || u.IsRemote != nil || u.Location != "" || u.Role != "" || u.Salary > 0 || u.Link != "" {
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provided")
 }
