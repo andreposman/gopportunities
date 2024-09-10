@@ -8,12 +8,13 @@ import (
 )
 
 func ListOpeningsHandler(ctx *gin.Context) {
-	opening := []schemas.Opening{}
+	openings := []schemas.Opening{}
 
-	if err := db.Find(&opening).Error; err != nil {
+	if err := db.Find(&openings).Error; err != nil {
+		sendError(ctx, http.StatusInternalServerError, "error listenign openings")
 		return
 	}
 
-	sendSuccess(ctx, http.StatusOK, "list-openings", opening)
+	sendSuccess(ctx, http.StatusOK, "list-openings", openings)
 
 }
